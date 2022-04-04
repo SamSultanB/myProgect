@@ -1,9 +1,12 @@
 # myProgect
 This game is simple. It was created by using 2d array.
-There are three objects: red one is virus, blue one is docotor, grey one is man.
+There are three objects: red one is virus, blue one is doctor, grey one is man.
   Quantity of viruses can be different. It is chosen randomly.
   Quantity of doctors depends on player: you can click on one of the celles. When you clicked it becomes blue.
   Quantity of people also is chosen randomly.
+There are also two buttons: "Stop" and "Start".
+First when you run the game nothing will happen becouse you didn't click the "Start" button. Once you clicked the button game starts.
+If you click "Stop" button game will stop.
 
 Rules are simple:
   If virus meets a man, the man becomes a virus.
