@@ -11,3 +11,4 @@ Rules are simple:
   If quantity of viruses are less than 3, the viruses become  people.
   
 
+![midterm](https://user-images.githubusercontent.com/99643171/161612673-7eb2388c-61f3-4bf6-baaa-6dd7c3da5923.png)
