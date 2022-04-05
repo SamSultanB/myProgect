@@ -15,3 +15,4 @@ Rules are simple:
   
 
 ![midterm](https://user-images.githubusercontent.com/99643171/161612673-7eb2388c-61f3-4bf6-baaa-6dd7c3da5923.png)
+![midterm2](https://user-images.githubusercontent.com/99643171/161750975-46e74c1a-6cb3-4a57-bd7a-2f32b6a08be7.png)
