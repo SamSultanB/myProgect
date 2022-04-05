@@ -123,7 +123,9 @@ class Doctor(Game):
                             self.a[i][j+1] = 3
                         else:
                             pass
-                    elif self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1] == 0:
+                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 3
                     else:
@@ -135,8 +137,10 @@ class Doctor(Game):
         for i in range(self.n-2):
             for j in range(self.m-2):
                 if self.a[i][j] == 3:
-                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1] >= 10:
-                        self.a[i][j] = 0
+                    neibors = self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1]
+                    neibor2 = self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+neibors
+                    if self.a[i-1][j-1]+self.a[i-1][j]+neibor2 >= 10:
+                        self.a[i][j] = 5
                     else:
                         pass
 
@@ -212,7 +216,9 @@ class Virus(Doctor):
                             self.a[i][j+1] = 5
                         else:
                             pass
-                    elif self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1] == 0:
+                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space2 == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 5
                     else:
@@ -317,7 +323,9 @@ class People(Virus):
                             self.a[i][j+1] = 1
                         else:
                             pass
-                    elif self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1] == 0:
+                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space2 == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 1
                     else:
