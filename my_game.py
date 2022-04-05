@@ -65,23 +65,22 @@ class Game:
 
     def draw(self):
 
-        color = "grey"
+        clr = "grey"
         s = self.width // (self.n - 2)
         d = self.height // (self.m - 2)
         for i in range(1, self.n - 1):
             for j in range(1, self.m - 1):
                 if (self.a[i][j] == 3):
-                    color = 'BLUE'
+                    clr = 'BLUE'
                 elif (self.a[i][j] == 1):
-                    color = 'GREY'
+                    clr = 'GREY'
                 elif (self.a[i][j] == 5):
-                    color = 'RED'
+                    clr = 'RED'
                 elif (self.a[i][j] == 4):
-                    color = "BLACK"
-                    self.c.create_rectangle((i-1)*s, (j-1)*d, i*s, j*d, fill=color)
+                    clr = "BLACK"
                 else:
-                    color = "WHITE"
-                self.c.create_oval((i-1)*s, (j-1)*d, i*s, j*d, fill=color)
+                    clr = "WHITE"
+                self.c.create_oval((i-1)*s, (j-1)*d, i*s, j*d, fill=clr)
         self.__movement()
         self.c.after(100, self.draw)
 
@@ -123,9 +122,9 @@ class Doctor(Game):
                             self.a[i][j+1] = 3
                         else:
                             pass
-                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
-                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
-                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space == 0:
+                    s0 = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    s = self.a[i+1][j]+self.a[i+1][j+1]+s0
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+s == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 3
                     else:
@@ -137,9 +136,9 @@ class Doctor(Game):
         for i in range(self.n-2):
             for j in range(self.m-2):
                 if self.a[i][j] == 3:
-                    neibors = self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1]
-                    neibor2 = self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+neibors
-                    if self.a[i-1][j-1]+self.a[i-1][j]+neibor2 >= 10:
+                    nb = self.a[i+1][j-1]+self.a[i+1][j]+self.a[i+1][j+1]
+                    nb2 = self.a[i-1][j+1]+self.a[i][j-1]+self.a[i-1][j+1]+nb
+                    if self.a[i-1][j-1]+self.a[i-1][j]+nb2 >= 10:
                         self.a[i][j] = 5
                     else:
                         pass
@@ -216,9 +215,9 @@ class Virus(Doctor):
                             self.a[i][j+1] = 5
                         else:
                             pass
-                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
-                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
-                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space2 == 0:
+                    s0 = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    s = self.a[i+1][j]+self.a[i+1][j+1]+s0
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+s == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 5
                     else:
@@ -323,9 +322,9 @@ class People(Virus):
                             self.a[i][j+1] = 1
                         else:
                             pass
-                    space = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
-                    space2 = self.a[i+1][j]+self.a[i+1][j+1]+space
-                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+space2 == 0:
+                    s0 = self.a[i][j-1]+self.a[i-1][j+1]+self.a[i+1][j-1]
+                    s = self.a[i+1][j]+self.a[i+1][j+1]+s0
+                    if self.a[i-1][j-1]+self.a[i-1][j]+self.a[i-1][j+1]+s == 0:
                         self.a[i][j] = 0
                         self.a[i+randint(-1, 1)][j+randint(-1, 1)] = 1
                     else:
