@@ -78,6 +78,7 @@ class Game:
                     clr = 'RED'
                 elif (self.a[i][j] == 4):
                     clr = "BLACK"
+                    self.c.create_rectangle((i-1)*s, (j-1)*d, i*s, j*d, fill=clr)
                 else:
                     clr = "WHITE"
                 self.c.create_oval((i-1)*s, (j-1)*d, i*s, j*d, fill=clr)
