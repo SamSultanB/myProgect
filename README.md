@@ -1,6 +1,6 @@
 # myProgect
 This game is simple. It was created by using 2d array.
-There are three objects: red one is virus, blue one is doctor, grey one is man.
+There are three objects: red one is virus, blue one is doctor, grey one is man. Black one is just wall.
   Quantity of viruses can be different. It is chosen randomly.
   Quantity of doctors depends on player: you can click on one of the celles. When you clicked it becomes blue.
   Quantity of people also is chosen randomly.
